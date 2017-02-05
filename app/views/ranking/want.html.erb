@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="container-inner inner-sm clearfix">
+      <h1 class="title">
+       <%= @title %>
+      </h1>
+    <% @items.each.with_index(1) do |item,i| %>
+        <div class="item-single-main">
+          <h2>
+              <%= "#{i}位" %>
+          </h2>
+            <div class="image">
+                <div class="img-wrap">
+                  <% if item.medium_image.present? %>
+                    <%= image_tag(item.medium_image.gsub('?_ex=128x128', '') , alt: item) %>
+                  <% else %>
+                    <%= image_tag("no-image.png" ) %>
+                  <% end %>
+                </div>
+            </div>
+            <div class="detail">
+                <p class="title">
+                  <%= item.title %>
+                </p>
+            </div>
+        </div>
+    <% end %>  
+  </div>
+</div>
